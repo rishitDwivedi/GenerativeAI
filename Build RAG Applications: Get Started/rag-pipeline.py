@@ -21,7 +21,7 @@ llm=ChatOpenAI(model=model_name,
            max_tokens=max_token,
            )
 
-path="/content/dsa-python.pdf"
+path="dsa-python.pdf"
 loader=PyPDFLoader(path)
 docs=loader.load()
 print(len(docs))
@@ -30,9 +30,32 @@ text_splitter=RecursiveCharacterTextSplitter(chunk_size=10000,chunk_overlap=4000
 all_splits = text_splitter.split_documents(docs)
 
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
-vectorstores=InMemoryVectorStore(embedding)
+vector_store=InMemoryVectorStore(embeddings)
 
 ids = vector_store.add_documents(documents=all_splits)
+query = "What is THE ORDERED LIST ADT?"
+docs = vector_store.similarity_search(query, k=3)
+print("docs",docs)
+context = "\n\n".join(doc.page_content for doc in docs)
+print("context",context)
+prompt = f"""
+You are answering from retrieved PDF context.
 
+If the answer is partially available, infer carefully from context.
+
+If book metadata like title, author, chapters, table of contents appears in context, answer clearly.
+
+If unavailable, say I don't know.
+
+Context:
+{context}
+
+Question:
+{query}
+"""
+
+response = llm.invoke(prompt)
+
+print(response.content)
 
 
