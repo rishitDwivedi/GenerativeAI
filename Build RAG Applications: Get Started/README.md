@@ -108,65 +108,9 @@ Binary search is a classic algorithm...
 
 ---
 
-## What Worked Well
-
-The system answered topic-based questions such as:
-
-* What is Binary Search?
-* Explain Stacks and Queues
-* What is Object-Oriented Programming?
-* What is Running Time Analysis?
-
----
-
-## Current Limitations
-
-Basic RAG systems may struggle with:
-
-* Book metadata questions (author, title)
-* Full document summaries
-* Table of contents extraction
-* Questions requiring multiple chapter synthesis
-
----
-
-## What I Learned
-
-Building a useful RAG system is not only about using an LLM.
-
-It also requires:
-
-* Good chunking strategy
-* Strong retrieval quality
-* Metadata handling
-* Better prompts
-* Search system design
-
----
-
-## Future Improvements
-
-* Hybrid Search (semantic + keyword)
-* Metadata extraction
-* Query routing
-* Better reranking
-* Web UI with Streamlit / FastAPI
-* Multi-document support
-
----
-
-## Screenshots
-
-(Add your terminal screenshots here)
-
----
-
 ## Author
 
 Rishit Dwivedi
 
 ---
 
-## License
-
-MIT
