@@ -69,7 +69,7 @@ pip install langchain langchain-openai langchain-community langchain-huggingface
 Set your GitHub Models token:
 
 ```bash
-export GITHUB_TOKEN=your_token_here
+export GITHUB_TOKEN="your_token_here"
 ```
 
 ---
