@@ -1,0 +1,2 @@
+A chat Bot in llamaindex that can read your pdf and answer question wrt it. This should be
+in modular form.
